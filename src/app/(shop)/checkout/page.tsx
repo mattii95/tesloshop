@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { QuantitySelector, Title } from "@/components";
+import { Title } from "@/components";
 import { initialData } from "@/seed/seed";
 
 const productsInCar = [

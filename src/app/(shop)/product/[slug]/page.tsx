@@ -4,12 +4,12 @@ import { initialData } from "@/seed/seed"
 import { notFound } from "next/navigation"
 
 type ProductPageProps = {
-    params: {
+    params: Promise<{
         slug: string
-    }
+    }>
 }
 
-export default async function ({ params }: ProductPageProps) {
+export default async function ProductBySlugPage({ params }: ProductPageProps) {
     const { slug } = await params
     const product = initialData.products.find(product => product.slug === slug)
 

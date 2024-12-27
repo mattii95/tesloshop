@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Title } from "@/components";
 import { initialData } from "@/seed/seed";
 import clsx from "clsx";
@@ -12,12 +11,12 @@ const productsInCar = [
 ]
 
 type OrderProps = {
-    params: {
+    params: Promise<{
         id: string
-    }
+    }>
 }
 
-export default async function ({ params }: OrderProps) {
+export default async function OrderByIdPage({ params }: OrderProps) {
     const { id } = await params
 
     return (

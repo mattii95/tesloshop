@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { QuantitySelector, Title } from "@/components";
 import { initialData } from "@/seed/seed";
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
 
 const productsInCar = [
     initialData.products[0],
