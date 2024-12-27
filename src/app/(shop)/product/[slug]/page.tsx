@@ -1,7 +1,9 @@
-import { ProductMobileSlideshow, ProductSlideshow, QuantitySelector, SizeSelector } from "@/components"
-import { titleFont } from "@/config/fonts"
-import { initialData } from "@/seed/seed"
+export const revalidate = 604800 // 7 days
+
 import { notFound } from "next/navigation"
+import { ProductMobileSlideshow, ProductSlideshow, QuantitySelector, SizeSelector, StockLabel } from "@/components"
+import { titleFont } from "@/config/fonts"
+import { getProductBySlug } from "@/actions"
 
 type ProductPageProps = {
     params: Promise<{
@@ -11,7 +13,7 @@ type ProductPageProps = {
 
 export default async function ProductBySlugPage({ params }: ProductPageProps) {
     const { slug } = await params
-    const product = initialData.products.find(product => product.slug === slug)
+    const product = await getProductBySlug(slug)
 
     if (!product) {
         notFound()
@@ -39,6 +41,8 @@ export default async function ProductBySlugPage({ params }: ProductPageProps) {
 
             {/* Details */}
             <div className="col-span-1 px-5">
+               <StockLabel slug={product.slug} /> 
+                
                 <h1 className={`${titleFont.className} antialiased font-bold text-xl`}>
                     {product.title}
                 </h1>
