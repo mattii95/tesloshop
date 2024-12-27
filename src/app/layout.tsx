@@ -4,7 +4,10 @@ import "./globals.css";
 
 
 export const metadata: Metadata = {
-    title: "TesloShop",
+    title: {
+        template: '%s - Teslo | Shop',
+        default: 'Home - Teslo | Shop'
+    },
     description: "Tienda virtual de productos en Nextjs",
 };
 
