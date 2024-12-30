@@ -12,6 +12,12 @@ export interface Product {
     gender: Gender;
 }
 
+export type CartProduct = Pick<Product, 'id' | 'slug' | 'title' | 'price'> & {
+    quantity: number,
+    size: Size,
+    image: string
+}
+
 export type Size = 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL' | 'XXXL';
 export type ValidTypes = 'shirts' | 'pants' | 'hoodies' | 'hats';
 export type Gender = 'men' | 'women' | 'kid' | 'unisex'

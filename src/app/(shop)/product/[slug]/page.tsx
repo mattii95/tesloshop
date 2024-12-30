@@ -5,6 +5,7 @@ import { ProductMobileSlideshow, ProductSlideshow, QuantitySelector, SizeSelecto
 import { titleFont } from "@/config/fonts"
 import { getProductBySlug } from "@/actions"
 import { Metadata, ResolvingMetadata } from "next"
+import { AddToCart } from "./ui/AddToCart"
 
 type ProductPageProps = {
     params: Promise<{
@@ -73,21 +74,7 @@ export default async function ProductBySlugPage({ params }: ProductPageProps) {
                 </h1>
                 <p className="text-lg mb-5">${product.price}</p>
 
-                {/* Selector de tallas */}
-                <SizeSelector
-                    selectedSize={product.sizes[0]}
-                    availableSizes={product.sizes}
-                />
-
-                {/* Selector de cantidad */}
-                <QuantitySelector
-                    quantity={2}
-                />
-
-                {/* Boton */}
-                <button className="btn-primary my-5">
-                    Agregar al carrito
-                </button>
+                <AddToCart product={product} />
 
                 {/* Description */}
                 <h3 className="font-bold text-sm">Descripcion</h3>
